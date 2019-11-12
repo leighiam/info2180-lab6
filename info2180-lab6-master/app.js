@@ -39,7 +39,7 @@ function displayList()
             }
             else if(this.response=="")
             {
-                document.getElementById('result').innerHTML = "<p style=\"color:red; text-transform:uppercase;\"> superhero not found</p>";
+                document.getElementById('result').innerHTML = "<p id=\"p\"> superhero not found</p>";
             }
         }
     }
