@@ -26,20 +26,22 @@ function displayList()
 {
     var btn = document.getElementById("search");
     btn.onclick = function(){
+    document.getElementById('result').innerHTML = "";
     var str = document.getElementById("input").value;
     var httpRequest2 = new XMLHttpRequest();
     httpRequest2.onreadystatechange = function ()
     {
         if (this.readyState == 4 && this.status == 200) 
         {
-            //var response = this.responseText;
-            document.getElementById('result').innerHTML = this.responseText;
-            console.log(document.getElementById("input").value);
+            if(this.response!="")
+            {
+                document.getElementById('result').innerHTML = this.responseText;
+            }
+            else if(this.response=="")
+            {
+                document.getElementById('result').innerHTML = "<p style=\"color:red; text-transform:uppercase;\"> superhero not found</p>";
+            }
         }
-        //else
-        //{
-        //    document.getElementById('result').innerHTML = "Superhero not found".toUpperCase();
-        //}
     }
     httpRequest2.open('GET', "http://localhost:8080/superheroes.php?query=" + str, true);
     httpRequest2.send();

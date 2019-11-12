@@ -68,6 +68,7 @@ $superheroes = [
 
 ?>
 <?php 
+    //$result = ""
     $query = strtolower($_REQUEST["query"]);
     if($query === "")
     {
@@ -86,20 +87,11 @@ $superheroes = [
             if($query === strtolower($superhero['name']) || $query === strtolower($superhero['alias']))
             {
 ?>
-<h2>RESULT</h2>
 <h3><?= $superhero['alias']; ?></h3>
 <h3>A.K.A <?= $superhero['name']; ?></h3>
 <p><?= $superhero['biography']; ?></p>
 <?php
-            break;}
-            else
-            {
-?>
-<h2>RESULT</h2>
-<p>SUPERHERO NOT FOUND</p>
-<?php
-            break;}
+            }
         }
-
     }
 ?>
