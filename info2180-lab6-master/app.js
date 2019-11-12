@@ -1,4 +1,4 @@
-function listSearch()   
+/*function listSearch()   
 {
     var httpRequest = new XMLHttpRequest();
     //var url = "http://localhost:8080/superheroes.php";
@@ -18,15 +18,15 @@ function listSearch()
     }
     httpRequest.open('GET', "http://localhost:8080/superheroes.php", true);
     httpRequest.send();
-}
+}*/
 
 
 
-/*function displayList()
+function displayList()
 {
     var btn = document.getElementById("search");
     btn.onclick = function(){
-    var str = document.getElementById("input").innerHTML;
+    var str = document.getElementById("input").value;
     var httpRequest2 = new XMLHttpRequest();
     httpRequest2.onreadystatechange = function ()
     {
@@ -34,7 +34,7 @@ function listSearch()
         {
             //var response = this.responseText;
             document.getElementById('result').innerHTML = this.responseText;
-            console.log(document.getElementById("input").textContent);
+            console.log(document.getElementById("input").value);
         }
         //else
         //{
@@ -45,4 +45,4 @@ function listSearch()
     httpRequest2.send();
 }
 }
-window.onload = displayList;*/
+window.onload = displayList;

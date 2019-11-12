@@ -91,14 +91,14 @@ $superheroes = [
 <h3>A.K.A <?= $superhero['name']; ?></h3>
 <p><?= $superhero['biography']; ?></p>
 <?php
-            }
+            break;}
             else
             {
 ?>
 <h2>RESULT</h2>
 <p>SUPERHERO NOT FOUND</p>
 <?php
-            }
+            break;}
         }
 
     }
