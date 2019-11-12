@@ -1,4 +1,7 @@
+<?php error_reporting(E_ALL ^ E_NOTICE); ?>
 <?php
+header("Access-Control-Allow-Origin:*");
+
 
 $superheroes = [
   [
@@ -64,9 +67,39 @@ $superheroes = [
 ];
 
 ?>
-
+<?php 
+    $query = strtolower($_REQUEST["query"]);
+    if($query === "")
+    {
+?>
 <ul>
 <?php foreach ($superheroes as $superhero): ?>
   <li><?= $superhero['alias']; ?></li>
 <?php endforeach; ?>
 </ul>
+<?php 
+    }
+    else
+    {
+        foreach($superheroes as $superhero)
+        {
+            if($query === strtolower($superhero['name']) || $query === strtolower($superhero['alias']))
+            {
+?>
+<h2>RESULT</h2>
+<h3><?= $superhero['alias']; ?></h3>
+<h3>A.K.A <?= $superhero['name']; ?></h3>
+<p><?= $superhero['biography']; ?></p>
+<?php
+            }
+            else
+            {
+?>
+<h2>RESULT</h2>
+<p>SUPERHERO NOT FOUND</p>
+<?php
+            }
+        }
+
+    }
+?>
